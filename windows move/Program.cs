@@ -17,14 +17,24 @@ namespace windows_move
                 {
                     if (t.MainWindowHandle != IntPtr.Zero && t.ProcessName.Contains(names[i]))
                     {
-                        if (i == 0)
+                        if (names[i] == "Spotify")
                         {
                             ProcessName = t;
-                            Move(Process.GetProcessesByName(ProcessName?.ProcessName), 0, -1928, -8, 1936, 1048, 0x0400);
+                            Move(Process.GetProcessesByName(ProcessName?.ProcessName), 0, -1919, 1, 1918, 1030, 0x0400);
                         }
 
-                        ProcessName = t;
-                        Move(Process.GetProcessesByName(ProcessName?.ProcessName), 0, 1912, 165, 1568, 868, 0x0400);
+                        if (names[i] == "Telegram")
+                        {
+                            ProcessName = t;
+                            Move(Process.GetProcessesByName(ProcessName?.ProcessName), 0, 1920, 173, 1552, 852, 0x0400);
+                        }
+
+                        if (names[i] == "Discord")
+                        {
+                            ProcessName = t;
+                            Move(Process.GetProcessesByName(ProcessName?.ProcessName), 0, 1921, 174, 1550, 850, 0x0400);
+                        }
+                        
                     }
                     
                 }
