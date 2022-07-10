@@ -9,8 +9,8 @@ namespace windows_move
 
         public static void Main()
         {
-            string[] names = new[] { "Spotify", "Telegram", "Discord" };
-            var r = Process.GetProcessesByName("Spotify");
+            string[] names = new[] { "Spotify", "Telegram", "Discord", "Joxi" };
+            var r = Process.GetProcessesByName("Joxi");
             for (int i = 0; i < names.Length; i++)
             {
                 foreach (var t in Process.GetProcesses())
@@ -33,6 +33,12 @@ namespace windows_move
                         {
                             ProcessName = t;
                             Move(Process.GetProcessesByName(ProcessName?.ProcessName), 0, 1921, 174, 1550, 850, 0x0400);
+                        }
+
+                        if (names[i] == "Joxi")
+                        {
+                            ProcessName = t;
+                            Move(Process.GetProcessesByName(ProcessName?.ProcessName), 0, 1629, 682, 301, 360, 0x0080);
                         }
                         
                     }
