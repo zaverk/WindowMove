@@ -14,6 +14,8 @@ namespace windows_move
                 if (process.MainWindowHandle != IntPtr.Zero)
                 {
                     SetWindowPos(process.MainWindowHandle, HWND, Left, Top, Width, Height, wFlags);
+                    ShowWindow(process.MainWindowHandle, 3);
+                    break;
                 }
             }
         }

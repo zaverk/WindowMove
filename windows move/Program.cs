@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Runtime.InteropServices;
 using static windows_move.Mover;
 
 namespace windows_move
@@ -9,40 +10,31 @@ namespace windows_move
 
         public static void Main()
         {
-            string[] names = new[] { "Spotify", "Telegram", "Discord", "Joxi" };
-            var r = Process.GetProcessesByName("Joxi");
+            string[] names = new[] { "Spotify", "Telegram", "Discord" };
+            Process[][] result = new Process[3][];
             for (int i = 0; i < names.Length; i++)
             {
-                foreach (var t in Process.GetProcesses())
+                result[i] = Process.GetProcessesByName(names[i]);
+            }
+
+            foreach (var r in result)
+            {
+                foreach (var p in r)
                 {
-                    if (t.MainWindowHandle != IntPtr.Zero && t.ProcessName.Contains(names[i]))
+                    if (p.ProcessName == "Spotify")
                     {
-                        if (names[i] == "Spotify")
-                        {
-                            ProcessName = t;
-                            Move(Process.GetProcessesByName(ProcessName?.ProcessName), 0, -1919, 1, 1918, 1030, 0x0400);
-                        }
-
-                        if (names[i] == "Telegram")
-                        {
-                            ProcessName = t;
-                            Move(Process.GetProcessesByName(ProcessName?.ProcessName), 0, 1920, 173, 1552, 852, 0x0400);
-                        }
-
-                        if (names[i] == "Discord")
-                        {
-                            ProcessName = t;
-                            Move(Process.GetProcessesByName(ProcessName?.ProcessName), 0, 1921, 174, 1550, 850, 0x0400);
-                        }
-
-                        if (names[i] == "Joxi")
-                        {
-                            ProcessName = t;
-                            Move(Process.GetProcessesByName(ProcessName?.ProcessName), 0, 1629, 682, 301, 360, 0x0080);
-                        }
-                        
+                        Move(r, 0, -1928, -8, 1936, 1048, 0x0400);
                     }
-                    
+
+                    if (p.ProcessName == "Telegram")
+                    {
+                        Move(r, 0, 1912, 165, 1568, 868, 0x0400);
+                    }
+
+                    if (p.ProcessName == "Discord")
+                    {
+                        Move(r, 0, 1912, 165, 1568, 868, 0x0400);
+                    }
                 }
             }
         }
